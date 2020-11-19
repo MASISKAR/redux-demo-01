@@ -1,8 +1,18 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export default function Decrement(props){
+ function Decrement(props){
 
     return (
         <button onClick={props.onDecrement}>Dec -</button>
     );
 };
+
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        onDecrement: ()=> dispatch({type:"DECREMENT" }),
+    };
+
+};
+
+export default connect(null, mapDispatchToProps)(Decrement);
